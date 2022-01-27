@@ -1,16 +1,157 @@
+:root {
+  --family-logo: Futura, sans-serif;
+
+  --zindex-popover: 999;
+  --zindex-toast: 1000;
+
+  --color-green: #3fe374;
+
+  --color: #2D3134;
+  --color-secondary: #cfcfca;
+  --color-bg: #fbf8ee;
+  --color-bg-overlay: rgba(0, 0, 0, 0.1);
+  --color-mark-bg: #ffd277;
+  --color-muted-bg: #eae7dd;
+  --color-muted: #79838b;
+  --color-border: #EAE7DD;
+  --color-link: #f76f4e;
+
+  --color-content-bg: #fff;
+
+  --color-control-border: #cec9b9;
+  --color-control-active-border: #7d7b74;
+
+  --color-button-primary: #fff;
+  --color-button-primary-bg: #f76f4e;
+  --color-button-primary-hover-bg: #F15530;
+  --color-button-primary-border: #F15530;
+  --color-button-primary-hover-border: #F15530;
+  --color-button-primary-active-bg: #DE4F2C;
+  --color-button-primary-active-border: #DE4F2C;
+
+  --color-button-secondary: var(--color);
+  --color-button-secondary-bg: var(--color-content-bg);
+  --color-button-secondary-hover-bg: #F9F8F4;
+  --color-button-secondary-border: var(--color-border);
+  --color-button-secondary-hover-border: var(--color-control-border);
+  --color-button-secondary-active-bg: var(--color-muted-bg);
+  --color-button-secondary-active-border: var(--color-control-border);
+
+  --color-button-tertiary: var(--color-muted);
+  --color-button-tertiary-bg: var(--color-bg);
+  --color-button-tertiary-hover-bg: #E3E0D4;
+  --color-button-tertiary-border: #eae7dd;
+  --color-button-tertiary-hover-border: var(--color-button-tertiary-hover-bg);
+  --color-button-tertiary-active-bg: #d7d3c6;
+  --color-button-tertiary-active-border: var(--color-button-tertiary-active-bg);
+
+  --size-control-border: 2px;
+  --size-control-radius: 2px;
+}
+
+body.dark-mode {
+  --color-green: #2bb958;
+
+  --color: #e9e6db;
+  --color-secondary: #666660;
+  --color-bg: #1e2022;
+  --color-bg-overlay: rgba(255, 255, 255, 0.1);
+  --color-mark-bg: #a87e2a;
+  --color-muted-bg: #35332f;
+  --color-muted: #b6b6a9;
+  --color-border: #2f3535;
+  --color-link: #c4563b;
+
+  --color-content-bg: rgb(0, 0, 0);
+
+  --color-control-border: #3f3e3a;
+  --color-control-active-border: #5e5c56;
+
+  --color-button-secondary: var(--color);
+  --color-button-secondary-bg: var(--color-content-bg);
+  --color-button-secondary-hover-bg: #252525;
+  --color-button-secondary-border: var(--color-border);
+  --color-button-secondary-hover-border: var(--color-control-border);
+  --color-button-secondary-active-bg: var(--color-muted-bg);
+  --color-button-secondary-active-border: var(--color-control-border);
+
+  --color-button-tertiary: var(--color-muted);
+  --color-button-tertiary-bg: var(--color-bg);
+  --color-button-tertiary-hover-bg: #333;
+  --color-button-tertiary-border: #44433f;
+  --color-button-tertiary-hover-border: var(--color-button-tertiary-hover-bg);
+  --color-button-tertiary-active-bg: black;
+  --color-button-tertiary-active-border: var(--color-button-tertiary-active-bg);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  height: 100%;
+  color: var(--color);
+  background: var(--color-bg);
 }
 
 a {
-  color: inherit;
+  color: var(--color-link);
   text-decoration: none;
+
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 * {
   box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 0.5em;
+  color: var(--color-muted);
+  border: var(--size-control-border) solid var(--color-control-border);
+  border-radius: var(--size-control-radius);
+  background: var(--color-muted-bg);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: 0;
+  border-color: var(--color-control-active-border);
+}
+
+
+button[type="button"] {
+  background: var(--color-button-primary-bg);
+  border: 1px solid var(--color-button-primary-border);
+}
+
+button[type="submit"] {
+  background: var(--color-button-primary-bg);
+  border: 1px solid var(--color-button-primary-border);
+}
+
+@media (min-width: 600px) {
+  [data-sm] {
+    display: none;
+  }
+}
+
+@media (max-width: 601px) {
+  [data-lg] {
+    display: none;
+  }
+}
+
+hr {
+  appearance: none;
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 1em 0;
+  border: 0;
 }

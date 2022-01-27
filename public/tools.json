@@ -1,0 +1,36 @@
+[
+  {
+    "category": "Formatters",
+    "tools": [
+      { "path": "/html", "title": "HTML Formatter" },
+      { "path": "/js", "title": "JavaScript Formatter/Minifier" },
+      { "path": "/json", "title": "JSON Formatter/Minifier" },
+      { "path": "/css", "title": "CSS Formatter/Minifier" },
+      { "path": "/sql", "title": "SQL Formatter" },
+      { "path": "/css-inliner", "title": "CSS Inliner" },
+      { "path": "/text-converter", "title": "Text Converter" },
+      { "path": "/json-to-csv", "title": "JSON to CSV" }
+    ]
+  },
+  {
+    "category": "Generators",
+    "tools": [
+      {
+        "path": "/markdown-table-generator",
+        "title": "Markdown Table Generator"
+      },
+      { "path": "/border-radius", "title": "Border Radius Generator" }
+    ]
+  },
+  {
+    "category": "Encoders / Decoders",
+    "tools": [{ "path": "/base64", "title": "Base64 Encode/Decode" }]
+  },
+  {
+    "category": "Misc",
+    "tools": [
+      { "path": "/lodash", "title": "Lodash Playground" },
+      { "path": "/hash-identifier", "title": "Hash Identifier" }
+    ]
+  }
+]

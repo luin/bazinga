@@ -1,0 +1,61 @@
+.toolbar {
+  margin-bottom: 1em;
+  display: flex;
+
+  .toolbarGroup {
+    + .toolbarGroup {
+      margin-left: 6px;
+    }
+  }
+
+  button {
+    appearance: none;
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    color: 1px solid var(--color);
+    background: var(--color-content-bg);
+    padding: 0.2em 0.6em;
+
+    &:first-child {
+      border-radius: var(--size-control-radius) 0 0 var(--size-control-radius);
+    }
+
+    &:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    + button {
+      margin-left: -1px;
+    }
+
+    &:hover {
+      background: var(--color-muted-bg);
+    }
+
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+.table {
+  border-collapse: collapse;
+
+  td {
+    border: 1px solid var(--color-border);
+
+    :global(.ql-container) {
+      min-width: 50px;
+      border: 0;
+    }
+
+    :global(.ql-editor) {
+      padding: 4px 4px;
+    }
+
+    &:focus-within {
+      background: var(--color-content-bg);
+    }
+  }
+}

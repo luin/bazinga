@@ -1,0 +1,42 @@
+$offset: -40px;
+
+.box {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background: var(--color-content-bg);
+  width: 500px;
+  max-width: 100%;
+  margin: -$offset 0;
+  height: 200px;
+  border: 1px solid var(--color-border);
+  padding: 8px;
+  position: relative;
+  top: -1px; // for the top border
+
+  input {
+    position: absolute;
+    width: 80px;
+  }
+
+  .topLeft {
+    top: $offset;
+    left: 0;
+  }
+
+  .bottomLeft {
+    bottom: $offset;
+    left: 0;
+  }
+
+  .topRight {
+    top: $offset;
+    right: 0;
+  }
+
+  .bottomRight {
+    bottom: $offset;
+    right: 0;
+  }
+}

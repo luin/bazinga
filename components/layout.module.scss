@@ -1,0 +1,228 @@
+.container {
+  display: flex;
+
+  .toolSidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    border-right: 1px solid var(--color-border);
+    padding: 1em;
+    width: 300px;
+
+    .logoBar {
+      display: flex;
+      align-items: center;
+
+      .darkModeToggle {
+        margin-left: auto;
+
+        svg {
+          width: 20px;
+        }
+
+        button {
+          cursor: pointer;
+          color: var(--color);
+          appearance: none;
+          background: transparent;
+          border: 0;
+          padding: 0.2em 0.6em;
+          border-radius: var(--size-control-radius);
+
+          &:hover {
+            background: var(--color-button-tertiary-hover-bg);
+          }
+
+          &:active {
+            background: var(--color-button-tertiary-active-bg);
+          }
+        }
+      }
+    }
+  }
+
+  &.sidebar {
+    .main {
+      margin-left: 300px;
+    }
+  }
+}
+
+.toastContainer {
+  z-index: var(--zindex-toast);
+}
+
+.searchBar {
+  input {
+    display: block;
+    width: 100%;
+  }
+
+  margin-bottom: 1em;
+  position: relative;
+
+  .shortcut {
+    top: 7px;
+    right: 10px;
+    position: absolute;
+  }
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 1em 2em 1em 1em;
+}
+
+.toolList {
+  a {
+    display: block;
+    margin: 0.8em 0;
+  }
+
+  &.isDropdown {
+    display: none;
+    margin-bottom: 2em;
+    overscroll-behavior: contain;
+
+    &.isOpen {
+      display: block;
+    }
+  }
+
+  .activeToolLink {
+    font-weight: bold;
+  }
+
+  .categoryTitle {
+    margin: 0;
+  }
+
+  .category {
+    margin-bottom: 1.4em;
+  }
+}
+
+.toolTitle {
+  font-family: Futura, sans-serif;
+  font-size: 1.25em;
+  margin: 0;
+}
+
+.title {
+  font-size: 1em;
+  margin: 0 auto 0.5em;
+  text-align: center;
+  font-weight: normal;
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+
+  .settings {
+    margin-left: auto;
+  }
+}
+
+.blockquote {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-secondary);
+  padding-top: 2em;
+  margin: 2em 0;
+  font-size: 14px;
+
+  &Icon {
+    margin-bottom: 0.6em;
+  }
+
+  span {
+    font-family: var(--family-logo);
+  }
+
+  footer {
+    margin: 0.5em 0;
+  }
+}
+
+.logoBar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mainFooter {
+  border-top: 1px solid var(--color-border);
+
+  nav {
+    margin-top: 1.2em;
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    position: relative;
+    margin-right: 1em;
+    line-height: 1;
+
+    &:not(:first-child) {
+      padding-left: 1em;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        border-left: 1px solid var(--color-border);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    display: block;
+
+    .toolSidebar {
+      position: static;
+      width: 100%;
+      padding: 1em;
+      padding-bottom: 0;
+      border: 0;
+      overflow: visible;
+    }
+
+    &.sidebar {
+      .main {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .logoBar {
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 0;
+  }
+
+  .searchBar:not(.isOpen),
+  .blockquote {
+    display: none;
+  }
+
+  .toolTitle {
+    font-size: 1em;
+  }
+
+  .main {
+    padding: 1em;
+  }
+
+  .mobileMenu {
+    margin-left: auto;
+  }
+}

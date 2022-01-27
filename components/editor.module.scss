@@ -1,0 +1,39 @@
+.container {
+  position: relative;
+  min-height: 50px;
+  border: var(--size-control-border) solid var(--color-control-border);
+  display: flex;
+  border-radius: var(--size-control-radius);
+  overflow: hidden;
+  background: var(--color-content-bg);
+
+  .resizeHandle {
+    height: 2px;
+    background: red;
+    cursor: se-resize;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &:focus-within {
+    border-color: var(--color-control-active-border);
+  }
+
+  & > * {
+    min-width: 0;
+    flex: 1;
+  }
+
+  :global {
+    .cm-editor {
+      min-height: 100%;
+      font-size: 1em;
+
+      &.cm-focused {
+        outline: 0;
+      }
+    }
+  }
+}

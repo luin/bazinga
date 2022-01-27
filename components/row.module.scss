@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1em;
+  overflow: visible;
+  position: relative;
+
+  .title {
+    font-size: 1.2em;
+    margin: 1em 0 0.4em;
+    user-select: none;
+  }
+
+  .icon {
+    color: var(--color-muted);
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  &.options,
+  &.hint {
+    background: var(--color-muted-bg);
+    padding: 1em 1em 0;
+    border-radius: var(--size-control-radius);
+  }
+
+  &.hint {
+    display: grid;
+    grid-template-areas: "icon content";
+    grid-template-columns: min-content 1fr;
+    gap: 10px;
+    padding-bottom: 0.8em;
+    color: var(--color-muted);
+
+    .icon {
+      grid-area: icon;
+    }
+
+    .content {
+      grid-area: content;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

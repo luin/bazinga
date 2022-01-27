@@ -1,0 +1,56 @@
+$variants: "primary", "secondary", "tertiary";
+
+.button {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0.8em 1.8em;
+  font-weight: bold;
+  transition: all 0.02s;
+  line-height: 1;
+  user-select: none;
+  font-size: inherit;
+
+  .icon {
+    margin-right: 0.5em;
+  }
+
+  &.small {
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+  }
+
+  &.withIcon {
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+  }
+
+  &.small.withIcon {
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+  }
+
+  @each $variant in $variants {
+    &.#{$variant} {
+      background: var(--color-button-#{$variant}-bg);
+      border: var(--size-control-border)
+        solid
+        var(--color-button-#{$variant}-border);
+      color: var(--color-button-#{$variant});
+      border-radius: var(--size-control-radius);
+
+      @media (hover: hover) {
+        &:hover, &.hovered {
+          background: var(--color-button-#{$variant}-hover-bg);
+          border-color: var(--color-button-#{$variant}-hover-border);
+        }
+
+        &:active {
+          background: var(--color-button-#{$variant}-active-bg);
+          border-color: var(--color-button-#{$variant}-active-border);
+        }
+      }
+    }
+  }
+}

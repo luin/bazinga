@@ -1,0 +1,46 @@
+.container {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 2px;
+  margin-bottom: 1em;
+
+  .checkboxTitle {
+    line-height: 1.8;
+    margin-left: 0.4em;
+  }
+
+  .settingTitle {
+    line-height: 1.8;
+    margin-right: 0.6em;
+    text-align: right;
+
+    &::after {
+      content: ": ";
+    }
+  }
+
+  .checkboxSettingValue {
+    display: flex;
+    align-items: center;
+  }
+
+  .inputSettingValue {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.6em;
+  }
+
+  input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+  }
+
+  input[type="text"] {
+    background: var(--color-content-bg);
+  }
+
+  .description {
+    color: var(--color-muted);
+    margin: 0.4em 0 0;
+  }
+}
