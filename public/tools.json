@@ -7,9 +7,7 @@
       { "path": "/json", "title": "JSON Formatter/Minifier" },
       { "path": "/css", "title": "CSS Formatter/Minifier" },
       { "path": "/sql", "title": "SQL Formatter" },
-      { "path": "/css-inliner", "title": "CSS Inliner" },
-      { "path": "/text-converter", "title": "Text Converter" },
-      { "path": "/json-to-csv", "title": "JSON to CSV" }
+      { "path": "/css-inliner", "title": "CSS Inliner" }
     ]
   },
   {
@@ -20,6 +18,15 @@
         "title": "Markdown Table Generator"
       },
       { "path": "/border-radius", "title": "Border Radius Generator" }
+    ]
+  },
+  {
+    "category": "Converters",
+    "tools": [
+      { "path": "/text-converter", "title": "Text Converter" },
+      { "path": "/json-to-csv", "title": "JSON to CSV" },
+      { "path": "/json-to-yaml", "title": "JSON to YAML" },
+      { "path": "/yaml-to-json", "title": "YAML to JSON" }
     ]
   },
   {

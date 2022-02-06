@@ -110,13 +110,22 @@ a:hover {
   box-sizing: border-box;
 }
 
+input[type="checkbox"],
+input[type="text"],
+input[type="number"] {
+  border: var(--size-control-border) solid var(--color-control-border);
+  border-radius: var(--size-control-radius);
+  background: var(--color-content-bg);
+}
+
+input[type="checkbox"] {
+  margin: 0;
+}
+
 input[type="text"],
 input[type="number"] {
   padding: 0.5em;
-  color: var(--color-muted);
-  border: var(--size-control-border) solid var(--color-control-border);
-  border-radius: var(--size-control-radius);
-  background: var(--color-muted-bg);
+  color: var(--color);
 }
 
 input[type="text"]:focus,

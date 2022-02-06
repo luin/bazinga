@@ -20,14 +20,20 @@
   }
 
   .checkboxSettingValue {
-    display: flex;
-    align-items: center;
+    &Checkbox {
+      display: flex;
+      align-items: center;
+    }
   }
 
   .inputSettingValue {
     display: flex;
     flex-direction: column;
     margin-bottom: 0.6em;
+  }
+
+  .selectSettingValue {
+    margin-bottom: 0.3em;
   }
 
   input[type="checkbox"] {

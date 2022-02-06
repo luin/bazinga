@@ -20,7 +20,7 @@ type SettingSchema<T extends string | number | boolean> = T extends boolean
       title: string;
       type: TypeName<T>;
       defaultValue: T;
-      options?: SimpleOption<T>[] | GroupedOption<T>[];
+      options?: readonly SimpleOption<T>[] | readonly GroupedOption<T>[];
       description?: string;
     };
 

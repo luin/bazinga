@@ -16,7 +16,7 @@ interface ToolSettingPanelProps<T extends ToolPageSettings> {
 }
 
 const findOption = <T,>(
-  options: GroupedOption<T>[] | SimpleOption<T>[],
+  options: readonly GroupedOption<T>[] | readonly SimpleOption<T>[],
   value: T
 ): { label: string; value: T } | null => {
   if (!options.length) return null;
@@ -57,18 +57,20 @@ const ToolSettingPanel = <T extends ToolPageSettings>({
                       styles.checkboxSettingValue
                     )}
                   >
-                    <input
-                      id={id}
-                      type="checkbox"
-                      checked={Boolean(settings[key])}
-                      onChange={(e) => {
-                        // @ts-expect-error
-                        updateSetting(key, e.target.checked);
-                      }}
-                    />
-                    <label htmlFor={id} className={styles.checkboxTitle}>
-                      {schema.title}
-                    </label>
+                    <div className={styles.checkboxSettingValueCheckbox}>
+                      <input
+                        id={id}
+                        type="checkbox"
+                        checked={Boolean(settings[key])}
+                        onChange={(e) => {
+                          // @ts-expect-error
+                          updateSetting(key, e.target.checked);
+                        }}
+                      />
+                      <label htmlFor={id} className={styles.checkboxTitle}>
+                        {schema.title}
+                      </label>
+                    </div>
                     {schema.description && (
                       <p className={styles.description}>{schema.description}</p>
                     )}
@@ -83,13 +85,24 @@ const ToolSettingPanel = <T extends ToolPageSettings>({
                     </label>
                     <Select
                       id={id}
-                      className={styles.settingValue}
+                      className={classNames(
+                        styles.settingValue,
+                        styles.selectSettingValue
+                      )}
                       isSearchable={false}
                       options={schema.options}
+                      theme={(theme) => ({
+                        ...theme,
+                        colors: {
+                          ...theme.colors,
+                        },
+                      })}
                       styles={{
                         control: (provided) => ({
                           ...provided,
                           minHeight: "none",
+                          border:
+                            "var(--size-control-border) solid var(--color-control-border)",
                         }),
                         dropdownIndicator: (provided) => ({
                           ...provided,

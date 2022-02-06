@@ -55,9 +55,11 @@
 }
 
 .searchBar {
-  input {
+  input[type="text"] {
     display: block;
     width: 100%;
+    color: var(--color-muted);
+    background: var(--color-muted-bg);
   }
 
   margin-bottom: 1em;

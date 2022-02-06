@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { toast } from "react-toast";
 import Button, { ButtonProps } from "./button";
 import styles from "./file-button.module.scss";
 
@@ -26,7 +27,6 @@ const FileButton = ({
           type="file"
           accept={accept}
           onChange={(e) => {
-            console.log("===change");
             const reader = new FileReader();
 
             reader.addEventListener("load", function (e) {
@@ -36,6 +36,11 @@ const FileButton = ({
               } else if (result) {
                 onReadBinary?.(result);
               }
+            });
+            reader.addEventListener("error", (e) => {
+              const message =
+                e.target?.error?.message ?? "Failed to read the selected file.";
+              toast.error(message);
             });
             const file = e.target.files?.[0];
             if (file) {
