@@ -1,3 +1,4 @@
+import Head from "next/head";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
@@ -37,33 +38,38 @@ function MyApp({ Component, pageProps }: AppProps) {
     return matchedTool ? [matchedTool] : [];
   })[0];
 
-  if (tool) {
-    // @ts-expect-error
-    const { settingSchema } = Component;
+  // @ts-expect-error
+  const { settingSchema } = Component;
 
-    return (
-      <ToolProvider.Provider value={tool.path}>
-        <SettingProvider title={tool.title} schema={settingSchema}>
-          {(settings, updateSetting) => (
-            <Layout
-              title={tool.title}
-              settings={settings}
-              settingSchema={settingSchema}
-              updateSetting={updateSetting}
-            >
-              <Component {...pageProps} settings={settings} />
-            </Layout>
-          )}
-        </SettingProvider>
-      </ToolProvider.Provider>
-    );
-  } else {
-    return (
-      <Layout title="" settings={{}} updateSetting={() => {}}>
-        <Component {...pageProps} />
-      </Layout>
-    );
-  }
+  return (
+    <>
+      <Head>
+	  <meta name='theme-color' content='#f76f4e' />
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
+
+      {tool ? (
+        <ToolProvider.Provider value={tool.path}>
+          <SettingProvider title={tool.title} schema={settingSchema}>
+            {(settings, updateSetting) => (
+              <Layout
+                title={tool.title}
+                settings={settings}
+                settingSchema={settingSchema}
+                updateSetting={updateSetting}
+              >
+                <Component {...pageProps} settings={settings} />
+              </Layout>
+            )}
+          </SettingProvider>
+        </ToolProvider.Provider>
+      ) : (
+        <Layout title="" settings={{}} updateSetting={() => {}}>
+          <Component {...pageProps} />
+        </Layout>
+      )}
+    </>
+  );
 }
 
 export default MyApp;
