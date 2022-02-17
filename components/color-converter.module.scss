@@ -1,0 +1,45 @@
+.title {
+    font-family: Futura, sans-serif;
+    font-size: 1.2em;
+}
+
+.field {
+    margin: 10px 0;
+    > label {
+        display: inline-block;
+        width: 60px;
+        font-family: monospace, sans-serif;
+    }
+    > input {
+        width: 240px;
+        font-family: monospace;
+    }
+}
+
+.preview {
+    width: 300px;
+    height: 40px;
+    border-radius: 4px;
+    border: var(--size-control-border) solid var(--color-control-border);
+}
+
+.separator {
+    width: 400px;
+    height: 1px;
+    background-color: var(--color-control-border);
+}
+
+@media only screen and (max-width: 700px) {
+    .title {
+        font-size: 0.8em;
+    }
+    .field > input {
+        width: 100%;
+    }
+    .preview {
+        width: 100%;
+    }
+    .separator {
+        width: auto;
+    }
+}
