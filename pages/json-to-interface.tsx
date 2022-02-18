@@ -1,16 +1,16 @@
-import { useRef, useState } from "react";
-import Editor, { EditorRef } from "../components/editor";
-import Row from "../components/row";
+import { closeBrackets } from "@codemirror/closebrackets";
 import { json } from "@codemirror/lang-json";
 import { linter, lintGutter } from "@codemirror/lint";
-import { closeBrackets } from "@codemirror/closebrackets";
-import jsonLinter from "../utils/jsonLinter";
-import Button from "../components/button";
-import { toast } from "react-toast";
 import JSONToTS from "json-to-ts";
-import useEditorValue from "../utils/useEditorValue";
+import { useRef } from "react";
+import { toast } from "react-toast";
+import Button from "../components/button";
 import ButtonGroup from "../components/button-group";
+import Editor, { EditorRef } from "../components/editor";
 import FileButton from "../components/file-button";
+import Row from "../components/row";
+import jsonLinter from "../utils/jsonLinter";
+import useEditorValue from "../utils/useEditorValue";
 
 const extensions = [
   json(),
