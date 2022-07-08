@@ -24,6 +24,7 @@ const extensions = [
 
 const JSONPage: ToolPage<{
   indent: string;
+  backslash: string;
 }> = ({ settings }) => {
   const ref = useRef<EditorRef | null>(null);
   const [value, setValue] = useEditorValue("");
@@ -56,7 +57,12 @@ const JSONPage: ToolPage<{
             const api = ref.current;
             if (!api) return;
             try {
-              const insert = format(api.getValue(), {
+              let content = api.getValue()
+              if (settings.backslash === 'unescape') {
+                content = content.replaceAll('\\"', '"').replaceAll('\\\\', `\\`)
+              }
+
+              const insert = format(content, {
                 parser: "json",
                 useTabs: settings.indent === "\t",
                 tabWidth: settings.indent === "  " ? 2 : 4,
@@ -95,6 +101,15 @@ JSONPage.settingSchema = {
       { label: "2 Spaces", value: "  " },
       { label: "4 Spaces", value: "    " },
       { label: "Tab", value: "\t" },
+    ],
+  },
+  backslash: {
+    title: "Backslash",
+    type: "string",
+    defaultValue: "",
+    options: [
+      { label: "None", value: ""},
+      { label: "Unescape", value: 'unescape' },
     ],
   },
 };
